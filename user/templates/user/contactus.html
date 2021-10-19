@@ -1,0 +1,43 @@
+{% extends 'user/main.html' %}
+
+{% block content %}
+
+{% for msg in messages %}
+<div class="alert alert-primary" role="alert">
+    <strong>Hey! {{ msg }}</strong>
+</div>
+{% endfor %}
+
+<form method="POST" action="/contactus/">
+    {% csrf_token %}
+    <!--<div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" required name="name" id="exampleInputPassword1">
+    </div>-->
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" name='email'required class="form-control" id="exampleFormControlInput1"
+            placeholder="name@example.com">
+    </div>
+    
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1"> Are You A Member?</label>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Ellaborate Your Query</label>
+        <textarea class="form-control"required name="query" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Any sugggestion</label>
+        <textarea class="form-control" required name="suggestion" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br>
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.9217770623454!2d73.79629821472015!3d18.487202087428436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf675b9cb917%3A0x46d6898673e9a2!2sCipla%20Foundation%20Area!5e0!3m2!1sen!2sin!4v1633088878072!5m2!1sen!2sin"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+{% endblock content %}

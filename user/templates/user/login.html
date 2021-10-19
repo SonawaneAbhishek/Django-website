@@ -1,0 +1,41 @@
+{% extends 'user/main.html' %}
+
+
+{% block content %}
+
+
+<form method="POST" action="/login/">
+    {% csrf_token %}
+
+
+    {% for msg in messages %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Hey! {{ msg }}</strong>
+    </div>
+    {% endfor %}
+
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" Required name="username" id="username" aria-describedby="emailHelp">
+
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" required name="password" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Are you a member</label>
+    </div>
+    <div class="mb-3 form-check">
+        <p>Do You Have an account?<a href="{% url 'signup' %}">create one</a></p>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+{% endblock content %}
