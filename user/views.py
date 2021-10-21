@@ -79,13 +79,19 @@ def logout_view(request):
     messages.info(request,"You are logged out")
     return redirect('home')
 
+
+
 @login_required(login_url='login') 
 def aboutus(request):
     return render(request, 'user/aboutus.html')
     
+
+
 @login_required(login_url='login') 
 def courses(request):
     return render(request,'user/courses.html')
+
+
 
 @login_required(login_url='login') 
 def contactus(request):
