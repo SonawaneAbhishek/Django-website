@@ -1,7 +1,10 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-
+{% url 'home' as home %}
+{% url 'aboutus' as aboutus %}
+{% url 'courses' as courses %}
+{% url 'contactus' as contactus %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -33,16 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% if request.path == home %} active {% endif %} " aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'aboutus' %}">About Us</a>
+                        <a class="nav-link{% if request.path == aboutus %} active {% endif %} " href="{% url 'aboutus' %}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'courses' %}">Courses</a>
+                        <a class="nav-link {% if request.path == courses %} active {% endif %}" href="{% url 'courses' %}">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'contactus' %}">Contact Us</a>
+                        <a class="nav-link {% if request.path == contactus %}active {% endif %}" href="{% url 'contactus' %}">Contact Us</a>
                       </li>
                     <!--<li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
