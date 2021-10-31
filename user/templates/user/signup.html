@@ -4,10 +4,10 @@
 
 <style>
     body {
-        background: #222D32;
+        background: #464649;
         font-family: 'Roboto', sans-serif;
     }
-     
+
     .login-box {
         margin-top: 5px;
         height: auto;
@@ -15,7 +15,7 @@
         text-align: center;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
-     
+
     .login-key {
         height: 100px;
         font-size: 80px;
@@ -24,7 +24,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-     
+
     .login-title {
         margin-top: 15px;
         text-align: center;
@@ -34,12 +34,12 @@
         font-weight: bold;
         color: #ECF0F5;
     }
-     
+
     .login-form {
         margin-top: 25px;
         text-align: left;
     }
-     
+
     input[type=text] {
         background-color: #1A2226;
         border: none;
@@ -65,7 +65,7 @@
         padding-left: 0px;
         color: #ECF0F5;
     }
-     
+
     input[type=password] {
         background-color: #1A2226;
         border: none;
@@ -78,12 +78,12 @@
         margin-bottom: 20px;
         color: #ECF0F5;
     }
-     
+
     .form-group {
         margin-bottom: 40px;
         outline: 0px;
     }
-     
+
     .form-control:focus {
         border-color: inherit;
         -webkit-box-shadow: none;
@@ -93,23 +93,23 @@
         background-color: #1A2226;
         color: #ECF0F5;
     }
-     
+
     input:focus {
         outline: none;
         box-shadow: 0 0 0;
     }
-     
+
     label {
         margin-bottom: 0px;
     }
-     
+
     .form-control-label {
         font-size: 10px;
         color: #6C6C6C;
         font-weight: bold;
         letter-spacing: 1px;
     }
-     
+
     .btn-outline-primary {
         border-color: #0DB8DE;
         color: #0DB8DE;
@@ -118,37 +118,38 @@
         letter-spacing: 1px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     }
-     
+
     .btn-outline-primary:hover {
         background-color: #0DB8DE;
         right: 0px;
     }
-     
+
     .login-btm {
         float: left;
     }
-     
+
     .login-button {
         padding-right: 0px;
         text-align: right;
         margin-bottom: 25px;
     }
-     
+
     .login-text {
         text-align: left;
         padding-left: 0px;
         color: #A2A4A4;
     }
-     
+
     .loginbttm {
         padding: 0px;
     }
-    </style>
+</style>
 
 
 <html>
+
 <body>
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
@@ -156,34 +157,40 @@
                     <i class="fa fa-user" aria-hidden="true"></i>
                 </div>
                 <div class="col-lg-12 login-title">
-                    SIGNUP 
+                    SIGNUP
                 </div>
- 
+
                 <div class="col-lg-12 login-form">
                     <div class="col-lg-12 login-form">
                         <form method="post" action="/signup/">
                             {% csrf_token %}
+                            {% for msg in messages %}
+
+                            <div class="alert alert-warning" role="alert">
+                                {{msg}}
+                            </div>
+                            {% endfor %}
                             <div class="form-group">
                                 <label class="form-control-label">FIRST NAME</label>
-                                <input type="text"Required name="first_name" class="form-control">
+                                <input type="text" Required name="first_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">LAST NAME</label>
-                                <input type="text"Required name="last_name" class="form-control">
+                                <input type="text" Required name="last_name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">EMAIL</label>
-                                <input type="email"Required name="email" class="form-control">
+                                <input type="email" Required name="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">USERNAME</label>
-                                <input type="text"Required name="username" class="form-control">
+                                <input type="text" Required name="username" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">PASSWORD</label>
-                                <input type="password"Required name="password" class="form-control" i>
+                                <input type="password" Required name="password" class="form-control" i>
                             </div>
- 
+
                             <div class="col-lg-12 loginbttm">
                                 <div class="col-lg-6 login-btm login-text">
                                     <!--oiefon-->
@@ -199,6 +206,7 @@
             </div>
         </div>
 </body>
+
 </html>
 
 {% endblock content %}
